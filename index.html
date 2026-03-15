@@ -73,7 +73,20 @@ h1{
     top:-10px;
     animation:fall 5s linear infinite;
 }
+.btn{
+padding:12px 25px;
+font-size:18px;
+background:#ff4081;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+margin-top:20px;
+}
 
+.btn:hover{
+background:#e73370;
+}
 @keyframes fall{
     to{
         transform:translateY(100vh) rotate(360deg);
@@ -86,6 +99,29 @@ h1{
 <body>
 
 <h1>🎉 Happy Birthday Best Friend 🎂</h1>
+    <button onclick="showSurprise()" class="btn">Click for Surprise 🎁</button>
+
+<h2 id="surprise" style="display:none; color:#ff4081;">
+🎉 You are the best friend ever! Happy Birthday! 🎂
+</h2>
+    <script>
+function showSurprise(){
+document.getElementById("surprise").style.display="block";
+
+for(let i=0;i<30;i++){
+let fire=document.createElement("div");
+fire.style.position="fixed";
+fire.style.width="8px";
+fire.style.height="8px";
+fire.style.background="hsl("+Math.random()*360+",100%,50%)";
+fire.style.left=Math.random()*100+"vw";
+fire.style.top=Math.random()*100+"vh";
+fire.style.borderRadius="50%";
+fire.style.animation="fall 2s linear";
+document.body.appendChild(fire);
+}
+}
+</script>
 
 <p class="caption">
 "Friendship like ours is the best gift life has given me 💖"
